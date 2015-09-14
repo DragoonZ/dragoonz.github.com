@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>运用AppleScript分享nowplaying | Len Zhang&#39;s Blog</title>
+  <meta name="author" content="Len Zhang">
+  
+  <meta name="description" content="嗯，玩儿G+玩儿多了，看到好多菊苣时不时分享一个#nowplaying出来，分享自己正在聆听的音乐，于是想自己搞个东西把#nowplaying自动搞到剪切板里面（直接分享什么的G+不开api啊魂淡！
+于是想用cocoa写个小app，无奈刚开始学习cocoa，水平太渣，于是转向applescript。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="运用AppleScript分享nowplaying"/>
+  <meta property="og:site_name" content="Len Zhang&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Len Zhang&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Len Zhang&#39;s Blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-18T04:46:00.000Z"><a href="/2012/11/17/yun-yong-applescriptfen-xiang-nowplaying/">2012-11-17</a></time>
+      
+      
+  
+    <h1 class="title">运用AppleScript分享nowplaying</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>嗯，玩儿G+玩儿多了，看到好多菊苣时不时分享一个#nowplaying出来，分享自己正在聆听的音乐，于是想自己搞个东西把#nowplaying自动搞到剪切板里面（直接分享什么的G+不开api啊魂淡！</p>
+<p>于是想用cocoa写个小app，无奈刚开始学习cocoa，水平太渣，于是转向applescript。</p>
+<a id="more"></a>
+<p>本来只是写了一段很简陋的代码，只有复制当前曲目名称到剪切板的功能，不到10行，不过G+上的菊苣<a href="https://plus.google.com/100109837944314351833" target="_blank" rel="external">Haoyu Wen</a>表示这太弱了，然后就给随手改了OTZ。配合<a href="https://plus.google.com/107719398594104739203/posts" target="_blank" rel="external">Apollo Wayne</a>菊苣的<a href="http://music.wayshine.us" target="_blank" rel="external">音乐分享服务</a>，可以分享到tw，G+，fb和人人上面ლ(╹◡╹ლ)</p>
+<p>效果图～</p>
+<p><img src="http://i.imgur.com/iIXrS.png" alt="nowplaying"></p>
+<p>下面贴代码( &gt; ◡╹)﻿</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="type">application</span> <span class="string">"iTunes"</span>	<span class="keyword">set</span> trackName <span class="keyword">to</span> <span class="property">name</span> <span class="keyword">of</span> current track	<span class="keyword">set</span> artistName <span class="keyword">to</span> artist <span class="keyword">of</span> current track	<span class="keyword">set</span> albumname <span class="keyword">to</span> album <span class="keyword">of</span> current track	<span class="keyword">set</span> timename <span class="keyword">to</span> <span class="property">time</span> <span class="keyword">of</span> current track<span class="keyword">end</span> <span class="keyword">tell</span><span class="function_start"><span class="keyword">on</span></span> replaceChars(aString, charToReplace, newChar)	<span class="keyword">set</span> &#123;TID, <span class="constant">text item delimiters</span>&#125; <span class="keyword">to</span> &#123;<span class="constant">text item delimiters</span>, charToReplace&#125;	<span class="keyword">set</span> aString <span class="keyword">to</span> <span class="type">text</span> items <span class="keyword">of</span> aString	<span class="keyword">set</span> <span class="constant">text item delimiters</span> <span class="keyword">to</span> newChar	<span class="keyword">set</span> aString <span class="keyword">to</span> aString <span class="keyword">as</span> <span class="type">text</span>	<span class="keyword">set</span> <span class="constant">text item delimiters</span> <span class="keyword">to</span> TID<span class="command">	return</span> aString<span class="keyword">end</span> replaceChars<span class="keyword">set</span> outputUrl <span class="keyword">to</span> replaceChars(<span class="string">"http://music.wayshine.us/nowplaying.php?album="</span> &amp; albumname &amp; <span class="string">"&amp;artist="</span> &amp; artistName &amp; <span class="string">"&amp;title="</span> &amp; trackName &amp; <span class="string">"&amp;length="</span> &amp; timename &amp; <span class="string">"&amp;from=233"</span> &amp; <span class="string">"&amp;c=0"</span>, <span class="string">" "</span>, <span class="string">"%20"</span>)<span class="keyword">tell</span> <span class="type">application</span> <span class="string">"Safari"</span>	<span class="command">activate</span>	<span class="keyword">try</span>		<span class="keyword">tell</span> window <span class="number">1</span> <span class="keyword">to</span> <span class="keyword">set</span> current <span class="constant">tab</span> <span class="keyword">to</span> make new <span class="constant">tab</span> <span class="keyword">with</span> properties &#123;URL:outputUrl &amp; <span class="string">"&amp;s=0"</span>&#125;	<span class="function_start"><span class="keyword">on</span></span> <span class="keyword">error</span>		open location outputUrl &amp; <span class="string">"&amp;s=0"</span>	<span class="keyword">end</span> <span class="keyword">try</span><span class="keyword">end</span> <span class="keyword">tell</span><span class="keyword">set</span> <span class="command">the clipboard</span> <span class="keyword">to</span> outputUrl &amp; <span class="string">"&amp;s=3"</span></span><br></pre></td></tr></table></figure>
+<p>接下来是关于如何运用的教程，首先，打开OS X自带的automator，选择新建服务</p>
+<p><img src="http://i.imgur.com/SnmeS.png" alt="service"></p>
+<p>接着在Uitilities菜单里面找到Run AppleScript(中文应该是实用工具和运行AppleScript)，拖入到右侧空白区域中，将上面的代码复制进去，并将上面的Service receives选择为“no input”（图中用红框标出部分）</p>
+<p><img src="http://i.imgur.com/XzJxc.png" alt="edit"></p>
+<p>选择自己喜欢的名字保存，然后在系统偏好设置→键盘→键盘快捷键里选择服务，找到自己刚才创建的那个，设置快捷键～（注意快捷键的冲突问题）</p>
+<p><img src="http://i.imgur.com/oi9y4.png" alt="setting"></p>
+<p>然后按下设定的快捷键，分享网页自动打开，剪切板里面也是分享网页的url，分享到各大SNS吧～</p>
+<p><img src="http://i.imgur.com/trQmV.png" alt="share"></p>
+<p>PS：Chrome用户可以看<a href="http://prprpr.in/blog/2012/11/18/nowplayingjiao-ben-geng-xin-%2Czhi-chi-chrome/" target="_blank" rel="external">这里</a>～</p>
+<p>12.18<a href="http://prprpr.in/blog/2012/12/18/now-playingjiao-ben-geng-xin-tian-jia-pan-duan-itunesshi-fou-zheng-zai-yun-xing-gong-neng/" target="_blank" rel="external">更新</a>，支持侦测iTunes是否运行</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Mac/">Mac</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:dragoonz.github.io">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/G/">G+</a><small>3</small></li>
+  
+    <li><a href="/tags/Google/">Google</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>7</small></li>
+  
+    <li><a href="/tags/Octopress/">Octopress</a><small>4</small></li>
+  
+    <li><a href="/tags/Test/">Test</a><small>1</small></li>
+  
+    <li><a href="/tags/WP7/">WP7</a><small>2</small></li>
+  
+    <li><a href="/tags/吐槽/">吐槽</a><small>3</small></li>
+  
+    <li><a href="/tags/娱乐/">娱乐</a><small>1</small></li>
+  
+    <li><a href="/tags/琐事/">琐事</a><small>1</small></li>
+  
+    <li><a href="/tags/福利/">福利</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Len Zhang
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'lenzhangblog';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>修改Google+页面 | Len Zhang&#39;s Blog</title>
+  <meta name="author" content="Len Zhang">
+  
+  <meta name="description" content="新版Goolge+页面实在是让人叫苦连天，歪脖子不说，还有一大块空白-，=  万一那天仆要是换了个三显示器的机子。。。那不得成这样？
+  
+  于是乎，在各位强大的G友的帮助下，我收集了以下CSS代码来让G+页面看起来舒适一点.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="修改Google+页面"/>
+  <meta property="og:site_name" content="Len Zhang&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Len Zhang&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Len Zhang&#39;s Blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-04-17T20:30:00.000Z"><a href="/2012/04/17/2012-04-17-xiu-gai-google-plus-ye-mian/">2012-04-17</a></time>
+      
+      
+  
+    <h1 class="title">修改Google+页面</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>  新版Goolge+页面实在是让人叫苦连天，歪脖子不说，还有一大块空白-，=<br>  万一那天仆要是换了个三显示器的机子。。。那不得成这样？</p>
+<p>  <img src="http://www.guao.hk/wp-content/uploads/2012/04/AqQ12BvCIAEn_Ih.jpg-large.jpg" alt="三显示器的壕（当然不是我～）"></p>
+<p>  于是乎，在各位强大的G友的帮助下，我收集了以下CSS代码来让G+页面看起来舒适一点.</p>
+  <a id="more"></a>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*左右互换*/</span></span><br><span class="line"></span><br><span class="line"><span class="class">.L9ru2b</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">float</span>:<span class="value"> left <span class="important">!important</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">45px</span> <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.Yf96sb</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">padding-top</span>:<span class="value"> <span class="number">0px</span> <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*背景*/</span></span><br><span class="line"></span><br><span class="line"><span class="tag">body</span><span class="rules">&#123; <span class="comment">/*middle region background*/</span></span><br><span class="line"><span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">url</span>(https://dl.dropbox.com/u/<span class="number">47428025</span>/Octopress/Saber.png) fixed no-repeat top left<span class="important">!important</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">background-position</span>:<span class="value"> <span class="number">100%</span> important</span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> white <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*透明以及部分半透明*/</span></span><br><span class="line"></span><br><span class="line"><span class="tag">div</span><span class="class">.pz</span><span class="class">.oz-sg-people</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> transparent</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">div</span><span class="class">.uWF1Ke</span><span class="class">.atQfbd</span><span class="class">.GjYYId</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> transparent</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">div</span><span class="class">.tOzHBe</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgba</span>( <span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.1</span>) <span class="important">!important</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">color</span>:<span class="value"> block</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">div</span><span class="class">.hFeggb</span><span class="class">.OzR9Jf</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgba</span>( <span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.8</span>) <span class="important">!important</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">color</span>:<span class="value"> block</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">div</span><span class="class">.Te</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgba</span>( <span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.8</span>) <span class="important">!important</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">color</span>:<span class="value"> block</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">div</span><span class="class">.Ye</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> transparent</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">div</span><span class="class">.tvogXd</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> transparent</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">div</span><span class="class">.rg</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> transparent</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">div</span><span class="class">.VZAKvf</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> transparent</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.kM5Oeb-ad9sbb</span><span class="class">.KSB3fe</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">90%</span> </span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgba</span>( <span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.5</span>)</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.jbhX0d</span><span class="class">.vcard</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> transparent <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.WrStFb</span><span class="class">.dXR9hf</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgba</span>( <span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.1</span>)<span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.ICACWc</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgba</span>( <span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.1</span>)<span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*去箭头*/</span></span><br><span class="line"></span><br><span class="line"><span class="class">.MrKoMd</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background</span>:<span class="value"> none <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.tuRX2</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background</span>:<span class="value"> none <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class">.ezXKfc</span><span class="class">.aTjDHb</span></span><br><span class="line"><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">display</span>:<span class="value"> none <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*其他页面的位置调整*/</span></span><br><span class="line"></span><br><span class="line"><span class="tag">div</span><span class="class">.jbhX0d</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">175px</span> <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.uohZhe</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">157px</span> <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.RazREb</span><span class="class">.ZI35oe</span><span class="class">.Z77zM</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">175px</span> <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.oJ8yxb</span><span class="class">.kSwsJc</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">175px</span> <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.CsUbkf</span><span class="class">.Nbwsyf</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">175px</span> <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.vVpWDb</span><span class="class">.no</span><span class="class">.JbyeKc</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">175px</span> <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*去照片黑底*/</span></span><br><span class="line"></span><br><span class="line"><span class="class">.bHZWuc</span><span class="class">.ORcg0b</span><span class="class">.UBQ2Je</span>,</span><br><span class="line"><span class="class">.gYx6jb</span>,</span><br><span class="line"><span class="class">.HylMBe</span>,</span><br><span class="line"><span class="class">.Ge39Mb</span>,</span><br><span class="line"><span class="class">.Bwz6rb</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">display</span>:<span class="value">none <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.r4gluf</span>,</span><br><span class="line"><span class="class">.VepHtd</span>,</span><br><span class="line"><span class="class">.jrj52d</span><span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">background</span>:<span class="value"> none <span class="important">!important</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>请配合Chrome，Firfox，safari的stylish插件使用～</p>
+<p>这是我用完后的效果～<br><img src="http://i.imgur.com/UkjHS.png" alt="效果"></p>
+<p>#终于不用歪脖子了～ =w=</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/G/">G+</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/G/">G+</a><small>3</small></li>
+  
+    <li><a href="/tags/Google/">Google</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>7</small></li>
+  
+    <li><a href="/tags/Octopress/">Octopress</a><small>4</small></li>
+  
+    <li><a href="/tags/Test/">Test</a><small>1</small></li>
+  
+    <li><a href="/tags/WP7/">WP7</a><small>2</small></li>
+  
+    <li><a href="/tags/吐槽/">吐槽</a><small>3</small></li>
+  
+    <li><a href="/tags/娱乐/">娱乐</a><small>1</small></li>
+  
+    <li><a href="/tags/琐事/">琐事</a><small>1</small></li>
+  
+    <li><a href="/tags/福利/">福利</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Len Zhang
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'anonymitydragoonsblog';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

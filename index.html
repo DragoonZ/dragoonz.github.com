@@ -1,0 +1,493 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Len Zhang&#39;s Blog</title>
+  <meta name="author" content="Len Zhang">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Len Zhang&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Len Zhang&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Len Zhang&#39;s Blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-14T18:38:00.000Z"><a href="/2013/03/14/2013-03-14-powering-down-google-search,guan-bi-gu-ge-sou-suo/">2013-03-14</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/14/2013-03-14-powering-down-google-search,guan-bi-gu-ge-sou-suo/">Powering Down Google Search，关闭谷歌搜索</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>今天早晨，Google宣布关闭其旗下的搜索引擎服务Google Search，下面是英文原文以及中文翻译。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/03/14/2013-03-14-powering-down-google-search,guan-bi-gu-ge-sou-suo/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-01-14T00:30:00.000Z"><a href="/2013/01/13/2013-01-13-qian-yi-dao-stdyun/">2013-01-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/01/13/2013-01-13-qian-yi-dao-stdyun/">迁移到stdyun</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>虽说github本身就是免费的，不过总感觉速度略慢，我这边ping要到300+。<br>所以前几天看到<a href="https://stdyun.com" target="_blank" rel="external">stdyun</a>有免费的octopress托管服务就去试了，ping现在只有20，感觉不错。</p>
+<p>顺便改了下rakefile，让octopress新建post以后可以自动用mou打开~<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")</span></span><br><span class="line">desc <span class="string">"Begin a new post in <span class="subst">#&#123;source_dir&#125;</span>/<span class="subst">#&#123;posts_dir&#125;</span>"</span></span><br><span class="line">task <span class="symbol">:new_post</span>, <span class="symbol">:title</span> <span class="keyword">do</span> |t, args|</span><br><span class="line">  raise <span class="string">"### You haven't set anything up yet. First run `rake install` to set up an Octopress theme."</span> <span class="keyword">unless</span> <span class="constant">File</span>.directory?(source_dir)</span><br><span class="line">  mkdir_p <span class="string">"<span class="subst">#&#123;source_dir&#125;</span>/<span class="subst">#&#123;posts_dir&#125;</span>"</span></span><br><span class="line">  args.with_defaults(<span class="symbol">:title</span> =&gt; <span class="string">'new-post'</span>)</span><br><span class="line">  title = args.title</span><br><span class="line">  filename = <span class="string">"<span class="subst">#&#123;source_dir&#125;</span>/<span class="subst">#&#123;posts_dir&#125;</span>/<span class="subst">#&#123;<span class="constant">Time</span>.now.strftime(<span class="string">'%Y-%m-%d'</span>)&#125;</span>-<span class="subst">#&#123;title.to_url&#125;</span>.<span class="subst">#&#123;new_post_ext&#125;</span>"</span></span><br><span class="line">  <span class="keyword">if</span> <span class="constant">File</span>.exist?(filename)</span><br><span class="line">    abort(<span class="string">"rake aborted!"</span>) <span class="keyword">if</span> ask(<span class="string">"<span class="subst">#&#123;filename&#125;</span> already exists. Do you want to overwrite?"</span>, [<span class="string">'y'</span>, <span class="string">'n'</span>]) == <span class="string">'n'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  puts <span class="string">"Creating new post: <span class="subst">#&#123;filename&#125;</span>"</span></span><br><span class="line">  open(filename, <span class="string">'w'</span>) <span class="keyword">do</span> |post|</span><br><span class="line">    post.puts <span class="string">"---"</span></span><br><span class="line">    post.puts <span class="string">"layout: post"</span></span><br><span class="line">    post.puts <span class="string">"title: \"<span class="subst">#&#123;title.gsub(<span class="regexp">/&amp;/</span>,<span class="string">'&amp;amp;'</span>)&#125;</span>\""</span></span><br><span class="line">    post.puts <span class="string">"date: <span class="subst">#&#123;<span class="constant">Time</span>.now.strftime(<span class="string">'%Y-%m-%d %H:%M'</span>)&#125;</span>"</span></span><br><span class="line">    post.puts <span class="string">"comments: true"</span></span><br><span class="line">    post.puts <span class="string">"categories: "</span></span><br><span class="line">    post.puts <span class="string">"---"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  system <span class="string">"open -a Mou <span class="subst">#&#123;filename&#125;</span>"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-12-18T23:32:00.000Z"><a href="/2012/12/18/2012-12-18-now-playingjiao-ben-geng-xin-tian-jia-pan-duan-itunesshi-fou-zheng-zai-yun-xing-gong-neng/">2012-12-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/12/18/2012-12-18-now-playingjiao-ben-geng-xin-tian-jia-pan-duan-itunesshi-fou-zheng-zai-yun-xing-gong-neng/">Now Playing脚本更新 添加判断iTunes是否正在运行功能</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>现在可以判断iTunes是否运行了，当iTunes未运行时会弹出对话框询问用户是否打开iTunes</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2012/12/18/2012-12-18-now-playingjiao-ben-geng-xin-tian-jia-pan-duan-itunesshi-fou-zheng-zai-yun-xing-gong-neng/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-12-09T06:42:00.000Z"><a href="/2012/12/09/2012-12-09-gei-macxia-de-windows-phonetong-bu-gong-ju-gui-liao/">2012-12-09</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/12/09/2012-12-09-gei-macxia-de-windows-phonetong-bu-gong-ju-gui-liao/">给Mac下的Windows Phone同步工具跪了</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>我一直感觉电脑上30多G的音乐同步到WP上只有6G是件极为不科学的事情。。。</p>
+<p>然后今天研究了一下，Mac下的Windows Phone同步工具在同步音乐的时候，MP3和AAC是不转换的，但是Apple Lossless竟然给我转成了128的码率，你没看错，就是128。。。这还是我选择了质量优先的结果，Windows上的zune能选码率，Mac上你就给我这么坑人啊！</p>
+<p>我™就感觉手机上听歌怎么这么渣！</p>
+<p>于是今天一狠心把电脑上所有Apple Lossless的音乐都转成256AAC了，反正这个码率我是听不出跟无损有啥区别的。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-19T01:13:00.000Z"><a href="/2012/11/18/2012-11-18-nowplayingjiao-ben-geng-xin-,zhi-chi-chrome/">2012-11-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/11/18/2012-11-18-nowplayingjiao-ben-geng-xin-,zhi-chi-chrome/">nowplaying脚本更新，支持chrome</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>嗯，鉴于很多Mac用户用的是Chrome浏览器，于是做了个chrome版的，参考了github上的一段<a href="https://gist.github.com/1138816">代码</a></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2012/11/18/2012-11-18-nowplayingjiao-ben-geng-xin-,zhi-chi-chrome/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-18T04:46:00.000Z"><a href="/2012/11/17/2012-11-17-yun-yong-applescriptfen-xiang-nowplaying/">2012-11-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/11/17/2012-11-17-yun-yong-applescriptfen-xiang-nowplaying/">运用AppleScript分享nowplaying</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>嗯，玩儿G+玩儿多了，看到好多菊苣时不时分享一个#nowplaying出来，分享自己正在聆听的音乐，于是想自己搞个东西把#nowplaying自动搞到剪切板里面（直接分享什么的G+不开api啊魂淡！</p>
+<p>于是想用cocoa写个小app，无奈刚开始学习cocoa，水平太渣，于是转向applescript。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2012/11/17/2012-11-17-yun-yong-applescriptfen-xiang-nowplaying/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-10-07T05:17:00.000Z"><a href="/2012/10/07/2012-10-07-flutter,diao-bao-de-shou-shi-cao-kong-ruan-jian/">2012-10-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/10/07/2012-10-07-flutter,diao-bao-de-shou-shi-cao-kong-ruan-jian/">Flutter，碉堡的手势操控软件</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>今天半夜去MplayerX官网看看有什么更新，然后发现了这个app。</p>
+<p><a href="http://itunes.apple.com/us/app/flutter/id522248613?mt=12" target="_blank" rel="external">Flutter</a>，一款看起来非常cool的软件。</p>
+<p>用摄像头，手势操控影音播放，我测试了一下识别率颇高，而且还是免费软件，貌似也支持Windows，来给个<a href="https://flutterapp.com" target="_blank" rel="external">官网</a>（linux菊苣们自己开发吧-_,-）</p>
+<p>其实平常自己一个人的时候倒还不会怎么用，举着个手略累。。。不过有人的时候用一下真的很惊艳，很有《少数派报告》里面阿汤哥的范儿～</p>
+<p>也就是说装13必备软件(´・ω・｀)﻿</p>
+<p>PS：之前炒得很火的那个Leapmotio没影了么。。。</p>
+<p>下面来一下软件截图，这种软件只有自己试了才知道，截图也只是他的教程而已。</p>
+<p><img src="http://i.imgur.com/hiQAP.png" alt="Flutter"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-09-12T06:10:00.000Z"><a href="/2012/09/12/2012-09-12-githubjin-tian-gua-liao-yi-hou-octopressde-pei-zhi-ye-yao-gai/">2012-09-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/09/12/2012-09-12-githubjin-tian-gua-liao-yi-hou-octopressde-pei-zhi-ye-yao-gai/">Github今天挂了以后Octopress的配置也要改</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>好吧。。。</p>
+<p>github这一挂让我鼓捣到现在。。。</p>
+<p>参见我之前的教程，<code>rake setup_github_pages</code>这个命令是绑定你的Github Page与Octopress的，原来的格式为<strong>git@github.org:username/username.github.com.git</strong></p>
+<p>现在是<strong>git@github.com:username/username.github.com.git</strong></p>
+<p>不知道怎么回事。。。或者说我⑨了原来就应该这么输入？</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-09-12T03:40:00.000Z"><a href="/2012/09/11/2012-09-11-gai-xian-chong-jiu-de-xian-chong/">2012-09-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/09/11/2012-09-11-gai-xian-chong-jiu-de-xian-chong/">该现充就得现充</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>又坑了一个月。。。</p>
+<p>最近事儿还真是多</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2012/09/11/2012-09-11-gai-xian-chong-jiu-de-xian-chong/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-08-01T20:18:00.000Z"><a href="/2012/08/01/2012-08-01-wp7jiu-shi-mai-meng-de-.-.-./">2012-08-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/08/01/2012-08-01-wp7jiu-shi-mai-meng-de-.-.-./">WP7就是卖萌的。。。</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>买来WP7发现它除了卖萌啥都不会啊，摔！</p>
+<p>看图。。。</p>
+<p><img src="http://i.imgur.com/EBqZU.jpg" alt="WP7"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+  
+    <a href="/page/2/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/G/">G+</a><small>3</small></li>
+  
+    <li><a href="/tags/Google/">Google</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>7</small></li>
+  
+    <li><a href="/tags/Octopress/">Octopress</a><small>4</small></li>
+  
+    <li><a href="/tags/Test/">Test</a><small>1</small></li>
+  
+    <li><a href="/tags/WP7/">WP7</a><small>2</small></li>
+  
+    <li><a href="/tags/吐槽/">吐槽</a><small>3</small></li>
+  
+    <li><a href="/tags/娱乐/">娱乐</a><small>1</small></li>
+  
+    <li><a href="/tags/琐事/">琐事</a><small>1</small></li>
+  
+    <li><a href="/tags/福利/">福利</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Len Zhang
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'anonymitydragoonsblog';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

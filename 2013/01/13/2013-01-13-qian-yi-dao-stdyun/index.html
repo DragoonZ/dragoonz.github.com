@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>迁移到stdyun | Len Zhang&#39;s Blog</title>
+  <meta name="author" content="Len Zhang">
+  
+  <meta name="description" content="虽说github本身就是免费的，不过总感觉速度略慢，我这边ping要到300+。所以前几天看到stdyun有免费的octopress托管服务就去试了，ping现在只有20，感觉不错。
+顺便改了下rakefile，让octopress新建post以后可以自动用mou打开~123456789101112">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="迁移到stdyun"/>
+  <meta property="og:site_name" content="Len Zhang&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Len Zhang&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Len Zhang&#39;s Blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-01-14T00:30:00.000Z"><a href="/2013/01/13/2013-01-13-qian-yi-dao-stdyun/">2013-01-13</a></time>
+      
+      
+  
+    <h1 class="title">迁移到stdyun</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>虽说github本身就是免费的，不过总感觉速度略慢，我这边ping要到300+。<br>所以前几天看到<a href="https://stdyun.com" target="_blank" rel="external">stdyun</a>有免费的octopress托管服务就去试了，ping现在只有20，感觉不错。</p>
+<p>顺便改了下rakefile，让octopress新建post以后可以自动用mou打开~<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")</span></span><br><span class="line">desc <span class="string">"Begin a new post in <span class="subst">#&#123;source_dir&#125;</span>/<span class="subst">#&#123;posts_dir&#125;</span>"</span></span><br><span class="line">task <span class="symbol">:new_post</span>, <span class="symbol">:title</span> <span class="keyword">do</span> |t, args|</span><br><span class="line">  raise <span class="string">"### You haven't set anything up yet. First run `rake install` to set up an Octopress theme."</span> <span class="keyword">unless</span> <span class="constant">File</span>.directory?(source_dir)</span><br><span class="line">  mkdir_p <span class="string">"<span class="subst">#&#123;source_dir&#125;</span>/<span class="subst">#&#123;posts_dir&#125;</span>"</span></span><br><span class="line">  args.with_defaults(<span class="symbol">:title</span> =&gt; <span class="string">'new-post'</span>)</span><br><span class="line">  title = args.title</span><br><span class="line">  filename = <span class="string">"<span class="subst">#&#123;source_dir&#125;</span>/<span class="subst">#&#123;posts_dir&#125;</span>/<span class="subst">#&#123;<span class="constant">Time</span>.now.strftime(<span class="string">'%Y-%m-%d'</span>)&#125;</span>-<span class="subst">#&#123;title.to_url&#125;</span>.<span class="subst">#&#123;new_post_ext&#125;</span>"</span></span><br><span class="line">  <span class="keyword">if</span> <span class="constant">File</span>.exist?(filename)</span><br><span class="line">    abort(<span class="string">"rake aborted!"</span>) <span class="keyword">if</span> ask(<span class="string">"<span class="subst">#&#123;filename&#125;</span> already exists. Do you want to overwrite?"</span>, [<span class="string">'y'</span>, <span class="string">'n'</span>]) == <span class="string">'n'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  puts <span class="string">"Creating new post: <span class="subst">#&#123;filename&#125;</span>"</span></span><br><span class="line">  open(filename, <span class="string">'w'</span>) <span class="keyword">do</span> |post|</span><br><span class="line">    post.puts <span class="string">"---"</span></span><br><span class="line">    post.puts <span class="string">"layout: post"</span></span><br><span class="line">    post.puts <span class="string">"title: \"<span class="subst">#&#123;title.gsub(<span class="regexp">/&amp;/</span>,<span class="string">'&amp;amp;'</span>)&#125;</span>\""</span></span><br><span class="line">    post.puts <span class="string">"date: <span class="subst">#&#123;<span class="constant">Time</span>.now.strftime(<span class="string">'%Y-%m-%d %H:%M'</span>)&#125;</span>"</span></span><br><span class="line">    post.puts <span class="string">"comments: true"</span></span><br><span class="line">    post.puts <span class="string">"categories: "</span></span><br><span class="line">    post.puts <span class="string">"---"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  system <span class="string">"open -a Mou <span class="subst">#&#123;filename&#125;</span>"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Octopress/">Octopress</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/G/">G+</a><small>3</small></li>
+  
+    <li><a href="/tags/Google/">Google</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>7</small></li>
+  
+    <li><a href="/tags/Octopress/">Octopress</a><small>4</small></li>
+  
+    <li><a href="/tags/Test/">Test</a><small>1</small></li>
+  
+    <li><a href="/tags/WP7/">WP7</a><small>2</small></li>
+  
+    <li><a href="/tags/吐槽/">吐槽</a><small>3</small></li>
+  
+    <li><a href="/tags/娱乐/">娱乐</a><small>1</small></li>
+  
+    <li><a href="/tags/琐事/">琐事</a><small>1</small></li>
+  
+    <li><a href="/tags/福利/">福利</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Len Zhang
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'anonymitydragoonsblog';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
